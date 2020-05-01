@@ -19,3 +19,25 @@ iframe{
   width: 50%;
   height: 50%;
 }
+.sortForm{
+  margin: 10px;
+  text-align: center;
+}
+.form-control{
+  margin: 10px;
+  text-align: center;
+  width: 80%;
+}
+#card{
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+}
+.card-body{
+  text-align: center;
+  
+}
+.card-title{
+  color: brown;
+}
