@@ -1,6 +1,7 @@
 const printToDom = (selector, textToPrint) => {
   document.querySelector(selector).innerHTML = textToPrint;
 };
+//intersting
 // create sorting form
   const sortingForm = () => {
    let domString = ''
