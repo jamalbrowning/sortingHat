@@ -8,8 +8,9 @@ const printToDom = (selector, textToPrint) => {
    domString += `<form>
                   <div class="form-group mx-auto sortForm">
                     <label for="exampleInputEmail1">Let the Hat decide your Fate</label>
-                      <input type="text" class="form-control mx-auto" id="fullName"  placeholder="Enter Full Name"> 
-                        <button type="submit" class="btn btn-danger" id="sortName" >SORT</button>                     
+                      <input type="text" class="form-control mx-auto" id="fullName"  placeholder="Enter Full Name" required> 
+                         <button type="submit" class="btn btn-danger sortButton" id="sortName" >SORT</button>
+                                             
                     </div>
                   </form>`
      printToDom('#sorting', domString);   
@@ -49,16 +50,15 @@ const sortStudent = () =>{
   printCard();
   
 }
+//print card and require field
 const printCard = () => {
   let domString = '';
  
   
   for (let i = 0; i < students.length; i++) {
   
-  if(document.querySelector('#fullName') === ''){
-    alert('Please Fill out your name')
-    return;
-    
+  if(students[i].name === ''){
+     
   }  else {  
     domString += `<div class="card mx-auto " style="width: 18rem;">
                    <div class="card-body">  
@@ -70,7 +70,7 @@ const printCard = () => {
   }  
 
  printToDom('#card', domString); 
- document.querySelector('#expel').addEventListener('click', expelStudent);
+//  document.querySelector('#expel').addEventListener('click', expelStudent);
 }
 }
       
