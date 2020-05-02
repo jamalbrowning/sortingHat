@@ -1,5 +1,5 @@
 body{
-  background-color: lightcyan;
+  background-color: cyan;
   /* background-image: url(https://i.pinimg.com/originals/42/a0/73/42a073e32a6d212114c0360827c964cd.jpg); */
   background-size: cover;
 }
@@ -7,10 +7,9 @@ body{
   border:1px solid black;
   margin: 10px;
   text-align: center;
-  opacity: 0.5;
+  
 }
-.jumbotron:hover {
-  opacity: 1.0;
+
 }
 .sort{
   display: block;
@@ -49,11 +48,13 @@ iframe{
   color: brown;
 }
 .sortButton{
-  background-image: url(https://i.ibb.co/0G4MZQS/images.jpg);
+  background-image: url(https://i.ibb.co/RQb43TM/SORTING-HAT.png);
   background-size: cover;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border: none;
+  color: white;
+
 }
 .sortButton:hover {
   animation: shake 0.5s;
@@ -72,4 +73,12 @@ iframe{
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+footer{
+  display: flex;
+  justify-content: center;  
+}
+.footer-container{
+  border-top: 1px solid  black;
+  border-bottom: 1px solid  black;
 }

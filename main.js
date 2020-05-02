@@ -8,15 +8,15 @@ const printToDom = (selector, textToPrint) => {
 
    domString += `<form>
                   <div class="form-group mx-auto sortForm">
-                    <label for="exampleInputEmail1">Let the Hat decide your Fate</label>
-                      <input type="text" class="form-control mx-auto" id="fullName"  placeholder="Enter Full Name" required> 
-                         <button type="submit" class="btn btn-danger sortButton" id="sortName" >SORT</button>
-                                             
+                    <label for="exampleInputEmail1">Let the Hat decide your Fate</label><br>
+                      <button type="submit" class="btn sortButton" id="sortName" >SORT</button>
+                       <input type="text" class="form-control mx-auto" id="fullName"  placeholder="Enter Full Name" required>                                                                   
                     </div>
                   </form>`
      printToDom('#sorting', domString);   
      
      document.querySelector('#sortName').addEventListener('click', sortStudent)
+     
    }
 
 //create sorting hat
@@ -58,36 +58,41 @@ const printCard = () => {
   
   for (let i = 0; i < students.length; i++) {
   
-  if(students[i].name === ''){
-     
-  }  else {  
-    domString += `<div class="card mx-auto " style="width: 18rem;">
-                   <div class="card-body">  
-                    <h3 class="card-title">${students[i].name}</h3>
-                     <h4 class="studentHouse">${students[i].house}<h4>
-                      <button id="expel" class="btn btn-primary">Expel</button>
-                   </div>
-                  </div>`
-  }  
+    if(students[i].name === ''){
+      
+    }  else {  
+      domString += `<div class="card mx-auto " style="width: 18rem;" id="${students[i].name}">
+                    <div class="card-body">  
+                      <h3 class="card-title">${students[i].name}</h3>
+                      <h4 class="studentHouse">${students[i].house}<h4>
+                        <button id="${students[i].name}" class="btn btn-primary hello">Expel</button>
+                    </div>
+                    </div>`
+    }  
 
- printToDom('#card', domString); 
-//  document.querySelector('#expel').addEventListener('click', expelStudent);
-}
+  printToDom('#card', domString); 
+    
+  
+  }
 }
       
-  const expelStudent = () => {
-
+  const expelStudent = (obj) => {
+    const newStudents = [];
+  if(obj[i].name === event.target.id){
+    console.log('this is working')
+  }
+  
   }    
 
 
 const clickEvents = () => {
   document.querySelector('#sortingForm').addEventListener('click', sortingForm);
-  
+  document.querySelector(`#${students[i].name}`).addEventListener('click', expelStudent); 
 }
-
 
 const init = () => {
   clickEvents();
+  expelStudent(students)
 };
 
 init();
