@@ -1,10 +1,16 @@
 body{
   background-color: lightcyan;
+  /* background-image: url(https://i.pinimg.com/originals/42/a0/73/42a073e32a6d212114c0360827c964cd.jpg); */
+  background-size: cover;
 }
 .jumbotron{
   border:1px solid black;
   margin: 10px;
   text-align: center;
+  opacity: 0.5;
+}
+.jumbotron:hover {
+  opacity: 1.0;
 }
 .sort{
   display: block;
@@ -18,4 +24,52 @@ iframe{
   display: block;
   width: 50%;
   height: 50%;
+}
+.sortForm{
+  margin: 10px;
+  text-align: center;
+
+}
+.form-control{
+  margin: 10px;
+  text-align: center;
+  width: 80%;
+}
+#card{
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+}
+.card-body{
+  text-align: center;
+  
+}
+.card-title{
+  color: brown;
+}
+.sortButton{
+  background-image: url(https://i.ibb.co/0G4MZQS/images.jpg);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border: none;
+}
+.sortButton:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
