@@ -1,5 +1,5 @@
 body{
-  background-color: cyan;
+  background-color: darkgrey;
   /* background-image: url(https://i.pinimg.com/originals/42/a0/73/42a073e32a6d212114c0360827c964cd.jpg); */
   background-size: cover;
 }
@@ -10,7 +10,7 @@ body{
   
 }
 
-}
+
 .sort{
   display: block;
   width: 200px
