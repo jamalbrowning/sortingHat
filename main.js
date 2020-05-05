@@ -1,7 +1,6 @@
 const printToDom = (selector, textToPrint) => {
   document.querySelector(selector).innerHTML = textToPrint;
 };
-//intersting
 // create sorting form
 const sortingForm = () => {
   let domString = "";
@@ -17,10 +16,9 @@ const sortingForm = () => {
   document.querySelector("#sortName").addEventListener("click", sortStudent);
   document.querySelector("#sortName").addEventListener("click", clearForm);
 };
+
 const clearForm = () => {
-  let clear = document.getElementById("form");
-  git;
-  clear.reset();
+  document.getElementById("form").reset();
 };
 //create sorting hat
 const hat = () => {
