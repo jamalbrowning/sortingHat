@@ -1,3 +1,6 @@
+const students = [];
+const expelledStudents = [];
+
 const printToDom = (selector, textToPrint) => {
   document.querySelector(selector).innerHTML = textToPrint;
 };
@@ -39,13 +42,13 @@ const hat = () => {
       break;
   }
 };
-//create students
-const students = [];
-const expelledStudents = [];
+
 const sortStudent = () => {
   let student = {};
   let domString = "";
+
   student.name = document.querySelector("#fullName").value;
+
   if (student.name != "") {
     student.house = hat();
     students.push(student);
@@ -55,7 +58,7 @@ const sortStudent = () => {
 
   printCard();
 };
-//print card and require field
+//print student information card
 const printCard = () => {
   let domString = "";
 
@@ -67,10 +70,12 @@ const printCard = () => {
                       <button id="${students[i].name}" class="btn btn-primary expel">Expel</button>
                   </div>
                   </div>`;
+
     printToDom("#card", domString);
   }
   addExpelEvents();
 };
+// add eventListener to each expel button
 const addExpelEvents = () => {
   let expelBtns = document.getElementsByClassName("expel");
   for (i = 0; i < expelBtns.length; i++) {
@@ -79,10 +84,10 @@ const addExpelEvents = () => {
 };
 // remove student when expel button is pressed
 const expelStudent = (e) => {
-  let foundStudent = students.find((obj) => obj.name === event.target.id);
-  let spliceStudent = students.indexOf(foundStudent);
-  students.splice(spliceStudent, 1);
-  expelledStudents.push(foundStudent);
+  let expelledStudent = students.find((obj) => obj.name === event.target.id);
+  let studentIndex = students.indexOf(expelledStudent);
+  students.splice(studentIndex, 1);
+  expelledStudents.push(expelledStudent);
   let exStudent = document.getElementById(event.target.id);
   exStudent.remove();
   // printExpelCard();
