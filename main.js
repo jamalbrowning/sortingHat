@@ -52,7 +52,7 @@ const sortStudent = () => {
 
   if (student.name != "") {
     student.house = hat();
-    student.id = student_id
+    student.id = student_id + student.name
     students.push(student);
     student_id++
     
@@ -90,26 +90,25 @@ const addExpelEvents = () => {
 // remove student when expel button is pressed
 const expelStudent = (e) => {
   let expelledStudent = students.find((obj) => obj.id === event.target.id);
-  console.log(expelledStudent)
   expelledStudents.push(expelledStudent);
   let studentIndex = students.indexOf(expelledStudent);
   students.splice(studentIndex, 1);
- 
   
   let exStudentCard = document.getElementById(event.target.id);
   exStudentCard.remove();
-  // expelledStudentCards()
+  expelledStudentCards()
+  // document.getElementById('expelled-student-card').appendChild(exStudentCard)
+  
 };
 
 const expelledStudentCards = () => {
   let domString = ''
-console.log(expelledStudents)
+
   for (let i = 0; i < expelledStudents.length; i++) {
     domString += `<div class="card mx-auto " style="width: 18rem;" id="${expelledStudents[i].id}">
                   <div class="card-body">  
                     <h3 class="card-title">${expelledStudents[i].name}</h3>
-                    <h4 class="studentHouse">${expelledStudents[i].house}<h4>
-                      <button id="${expelledStudents[i].id}" class="btn btn-primary expel">Expel</button>
+                    <h4 class="studentHouse">The Dark Side<h4>
                   </div>
                   </div>`;
 

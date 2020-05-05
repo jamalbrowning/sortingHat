@@ -34,7 +34,7 @@ iframe{
   text-align: center;
   width: 80%;
 }
-#card{
+#student-card{
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
@@ -81,4 +81,15 @@ footer{
 .footer-container{
   border-top: 1px solid  black;
   border-bottom: 1px solid  black;
+}
+.expellers{
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+}
+#expelled-student-card{
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
 }
