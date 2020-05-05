@@ -18,7 +18,8 @@ const sortingForm = () => {
 	document.querySelector("#sortName").addEventListener("click", clearForm);
 };
 const clearForm = () => {
-	let clear = document.getElementById("form");git 
+	let clear = document.getElementById("form");
+	git;
 	clear.reset();
 };
 //create sorting hat
@@ -40,7 +41,6 @@ const hat = () => {
 			break;
 	}
 };
-// console.log(hat)
 //create students
 const students = [];
 const expelledStudents = [];
@@ -69,14 +69,10 @@ const printCard = () => {
                       <button id="${students[i].name}" class="btn btn-primary expel">Expel</button>
                   </div>
                   </div>`;
-
 		printToDom("#card", domString);
-		// console.log("STUDENTS HERE", students);
 	}
 	addExpelEvents();
-	// document.querySelector(`#`).addEventListener('click', expelStudent);
 };
-
 const addExpelEvents = () => {
 	let expelBtns = document.getElementsByClassName("expel");
 	for (i = 0; i < expelBtns.length; i++) {
@@ -85,42 +81,16 @@ const addExpelEvents = () => {
 };
 // remove student when expel button is pressed
 const expelStudent = (e) => {
-	// console.log("STUDENTS on 82", students);
 	let foundStudent = students.find((obj) => obj.name === event.target.id);
 	let spliceStudent = students.indexOf(foundStudent);
-	// console.log(students.indexOf(findStudent))
 	students.splice(spliceStudent, 1);
-	// console.log("STUDENTS on 87", students);
 	expelledStudents.push(foundStudent);
-	console.log("this student is expelled", expelledStudents);
 	let exStudent = document.getElementById(event.target.id);
 	exStudent.remove();
-
 	// printExpelCard();
 };
-//trying to create a new div of expelled cards
-// const printExpelCard = () => {
-//   let domString = "";
-
-//   for (let i = 0; i < expelledStudents[i].length; i++) {
-//     if (expelledStudents[i].name !== "") {
-//       domString += `<div class="card mx-auto " style="width: 18rem;" id="${expelledStudents[i].name}">
-//                     <div class="card-body2">
-//                       <h3 class="card-title2">${expelledStudents[i].name}</h3>
-//                       <h4 class="studentHouse2">Expelled<h4>
-//                     </div>
-//                     </div>`;
-//     }
-
-//     printToDom("#expelCard", domString);
-
-//     // document.querySelector(`#`).addEventListener('click', expelStudent);
-//   }
-// }
-
 const clickEvents = () => {
 	document.querySelector("#sortingForm").addEventListener("click", sortingForm);
-	// document.querySelector("#sortingForm").addEventListener("click", sortingForm);
 };
 
 const init = () => {
