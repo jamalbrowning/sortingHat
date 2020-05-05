@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    
     <div class="jumbotron">
       <h1 class="display-4">Sorting Hat</h1>
-      <p>which house ar you?</p>
-      <p class="lead">Oh you may not think I am pretty, but don’t judge on what you see. I’ll eat myself if you can find a smarter hat than me</p>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <div class="vid-container mx-auto"> 
-        <iframe   src="https://www.youtube.com/embed/iLRlff-JomY?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div> 
+      <p>Which house arrrrr you?</p>
       <p class="lead">
-        <a class="btn btn-primary btn-lg sort mx-auto" href="#" role="button" id="sortingForm">Let the Sort Begin</a>
+        Oh you may not think I am pretty, but don’t judge on what you see. I’ll
+        eat myself if you can find a smarter hat than me
+      </p>
+      <div class="vid-container mx-auto">
+        <iframe
+          src="https://www.youtube.com/embed/iLRlff-JomY?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="lead">
+        <a
+          class="btn btn-primary btn-lg sort mx-auto"
+          href="#"
+          role="button"
+          id="sortingForm"
+          >Let the Sort Begin</a
+        >
       </p>
     </div>
-    <div id='alert'></div>
+    <div id="alert"></div>
     <div id="sorting"></div>
-    <div id="card"></div>
-    <div id="expelCard"></div>
+    <h3 class="expellers">Students</h3>
+    <div id="student-card"></div>
+    <h3 class="expellers">Explled Students</h3>
+    <div id="expelled-student-card"></div>
     <div class="footer-container">
-    <footer>Thanks for showing up</footer>
+      <footer>Thanks for showing up</footer>
     </div>
     <script src="./main.js"></script>
   </body>

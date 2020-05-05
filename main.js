@@ -1,130 +1,128 @@
+const students = [];
+const expelledStudents = [];
+let student_id = 1
+
 const printToDom = (selector, textToPrint) => {
-	document.querySelector(selector).innerHTML = textToPrint;
+  document.querySelector(selector).innerHTML = textToPrint;
 };
-//intersting
 // create sorting form
 const sortingForm = () => {
-	let domString = "";
+  let domString = "";
 
-	domString += `<form id="form">
+  domString += `<form id="form">
                   <div class="form-group mx-auto sortForm">
                     <label for="exampleInputEmail1">Let the Hat decide your Fate</label><br>
                       <input type="text"  class="form-control mx-auto" id="fullName"  placeholder="Enter Full Name" >   
                       <button type="submit" class="btn sortButton" id="sortName" >SORT</button>                                                                 
                     </div>
                   </form>`;
-	printToDom("#sorting", domString);
-	document.querySelector("#sortName").addEventListener("click", sortStudent);
-	document.querySelector("#sortName").addEventListener("click", clearForm);
+  printToDom("#sorting", domString);
+  document.querySelector("#sortName").addEventListener("click", sortStudent);
+  document.querySelector("#sortName").addEventListener("click", clearForm);
 };
+
 const clearForm = () => {
-	let clear = document.getElementById("form");git 
-	clear.reset();
+  document.getElementById("form").reset();
 };
 //create sorting hat
 const hat = () => {
-	sortedHouse = Math.floor(Math.random() * 4);
+  sortedHouse = Math.floor(Math.random() * 4);
 
-	switch (sortedHouse) {
-		case 0:
-			return "Gryffindor";
-			break;
-		case 1:
-			return "Slytherin";
-			break;
-		case 2:
-			return "Hufflepuff";
-			break;
-		case 3:
-			return "Ravenclaw";
-			break;
-	}
+  switch (sortedHouse) {
+    case 0:
+      return "Gryffindor";
+      break;
+    case 1:
+      return "Slytherin";
+      break;
+    case 2:
+      return "Hufflepuff";
+      break;
+    case 3:
+      return "Ravenclaw";
+      break;
+  }
 };
-// console.log(hat)
-//create students
-const students = [];
-const expelledStudents = [];
+
 const sortStudent = () => {
-	let student = {};
-	let domString = "";
-	student.name = document.querySelector("#fullName").value;
-	if (student.name != "") {
-		student.house = hat();
-		students.push(student);
-	} else {
-		alert("Please fill in name");
-	}
+  let student = {};
+  let domString = "";
 
-	printCard();
+  student.name = document.querySelector("#fullName").value;
+
+  if (student.name != "") {
+    student.house = hat();
+    student.id = student_id + student.name
+    students.push(student);
+    student_id++
+    
+  } else {
+    alert("Please fill in name");
+  }
+  
+  printCard();
 };
-//print card and require field
+//print student information card
 const printCard = () => {
-	let domString = "";
+  let domString = "";
 
-	for (let i = 0; i < students.length; i++) {
-		domString += `<div class="card mx-auto " style="width: 18rem;" id="${students[i].name}">
+  for (let i = 0; i < students.length; i++) {
+    domString += `<div class="card mx-auto " style="width: 18rem;" id="${students[i].id}">
                   <div class="card-body">  
                     <h3 class="card-title">${students[i].name}</h3>
                     <h4 class="studentHouse">${students[i].house}<h4>
-                      <button id="${students[i].name}" class="btn btn-primary expel">Expel</button>
+                      <button id="${students[i].id}" class="btn btn-primary expel">Expel</button>
                   </div>
                   </div>`;
 
-		printToDom("#card", domString);
-		// console.log("STUDENTS HERE", students);
-	}
-	addExpelEvents();
-	// document.querySelector(`#`).addEventListener('click', expelStudent);
+    printToDom("#student-card", domString);
+  }
+  addExpelEvents();
 };
-
+// add eventListener to each expel button
 const addExpelEvents = () => {
-	let expelBtns = document.getElementsByClassName("expel");
-	for (i = 0; i < expelBtns.length; i++) {
-		expelBtns[i].addEventListener("click", expelStudent);
-	}
+  let expelBtns = document.getElementsByClassName("expel");
+  for (i = 0; i < expelBtns.length; i++) {
+    expelBtns[i].addEventListener("click", expelStudent);
+    
+  }
 };
 // remove student when expel button is pressed
 const expelStudent = (e) => {
-	// console.log("STUDENTS on 82", students);
-	let foundStudent = students.find((obj) => obj.name === event.target.id);
-	let spliceStudent = students.indexOf(foundStudent);
-	// console.log(students.indexOf(findStudent))
-	students.splice(spliceStudent, 1);
-	// console.log("STUDENTS on 87", students);
-	expelledStudents.push(foundStudent);
-	console.log("this student is expelled", expelledStudents);
-	let exStudent = document.getElementById(event.target.id);
-	exStudent.remove();
-
-	// printExpelCard();
+  let expelledStudent = students.find((obj) => obj.id === event.target.id);
+  expelledStudents.push(expelledStudent);
+  let studentIndex = students.indexOf(expelledStudent);
+  students.splice(studentIndex, 1);
+  
+  let exStudentCard = document.getElementById(event.target.id);
+  exStudentCard.remove();
+  expelledStudentCards()
+  // document.getElementById('expelled-student-card').appendChild(exStudentCard)
+  
 };
-//trying to create a new div of expelled cards
-// const printExpelCard = () => {
-//   let domString = "";
 
-//   for (let i = 0; i < expelledStudents[i].length; i++) {
-//     if (expelledStudents[i].name !== "") {
-//       domString += `<div class="card mx-auto " style="width: 18rem;" id="${expelledStudents[i].name}">
-//                     <div class="card-body2">
-//                       <h3 class="card-title2">${expelledStudents[i].name}</h3>
-//                       <h4 class="studentHouse2">Expelled<h4>
-//                     </div>
-//                     </div>`;
-//     }
+const expelledStudentCards = () => {
+  let domString = ''
 
-//     printToDom("#expelCard", domString);
+  for (let i = 0; i < expelledStudents.length; i++) {
+    domString += `<div class="card mx-auto " style="width: 18rem;" id="${expelledStudents[i].id}">
+                  <div class="card-body">  
+                    <h3 class="card-title">${expelledStudents[i].name}</h3>
+                    <h4 class="studentHouse">The Dark Side<h4>
+                  </div>
+                  </div>`;
 
-//     // document.querySelector(`#`).addEventListener('click', expelStudent);
-//   }
-// }
+    printToDom("#expelled-student-card", domString);
+  }
+}
 
 const clickEvents = () => {
-	document.querySelector("#sortingForm").addEventListener("click", sortingForm);
-	// document.querySelector("#sortingForm").addEventListener("click", sortingForm);
+  document.querySelector("#sortingForm").addEventListener("click", sortingForm);
+  
 };
 
 const init = () => {
-	clickEvents();
+  clickEvents();
 };
 
 init();
