@@ -12,10 +12,15 @@ Helpful Form: An error message shows if a user tries to sort a student without f
 Add Button Hints
 When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the dom.
 
-# Expel Button Hints
-Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your print to dom function. Double hint - put a unique id in the student object when you create them.
+<img src = "https://i.ibb.co/8jbB6Ly/Screen-Shot-2020-05-26-at-11-30-25-AM.png">
 
-# Optional Bonus
-House Colors: The color of the student's card changes depending on which house they were sorted.
-Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students. -->
+### Technologies
+- Html
+- css
+- javascript
+- bootstrap
+
+## How To Run
+1. Clone down this repo
+1. Use your favorite http server (like [http-server](https://www.npmjs.com/package/http-server)) to serve it up (`hs`)
+1. In your browser, go where it's being served (default is localhost:8080)
